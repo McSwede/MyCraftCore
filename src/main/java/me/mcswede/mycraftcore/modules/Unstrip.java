@@ -20,6 +20,9 @@ public class Unstrip implements Listener {
 
     @EventHandler
     public void OnBlockRightClick(PlayerInteractEvent event) {
+        if (!event.getPlayer().hasPermission("mycraftcore.unstrip")) {
+            return;
+        }
 
         if (event.getAction() == Action.RIGHT_CLICK_BLOCK
                 && axeArray.contains(event.getPlayer().getEquipment().getItemInMainHand().getType())) {

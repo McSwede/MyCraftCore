@@ -12,3 +12,9 @@ permissions:
   mycraftcore.highway:
     description: Allows usage of the /highway command.
     default: true
+  mycraftcore.unstrip:
+    description: Allows player to un-strip wood.
+    default: true
+  mycraftcore.petowner:
+    description: Allows player to get owner of pet by petting them.
+    default: true

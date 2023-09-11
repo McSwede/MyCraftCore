@@ -27,3 +27,7 @@ highway:
 # Allows players to un-strip wood by right-clicking it with and axe
 unstrip:
   enabled: true
+
+# Right-clicking someone else's pet tells you the name of the owner
+petowner:
+  enabled: true
