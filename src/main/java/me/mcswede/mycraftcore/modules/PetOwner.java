@@ -3,10 +3,7 @@ package me.mcswede.mycraftcore.modules;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
 import net.kyori.adventure.text.minimessage.MiniMessage;
-import org.bukkit.Material;
-import org.bukkit.Particle;
-import org.bukkit.Sound;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -34,7 +31,7 @@ public class PetOwner implements Listener {
             return;
         }
         if(event.getRightClicked() instanceof Tameable tameable && tameable.isTamed() && isPattable(tameable)) {
-            Player owner = (Player) tameable.getOwner();
+            OfflinePlayer owner = (OfflinePlayer) tameable.getOwner();
             if (owner == player) {
                 return;
             }
