@@ -1,0 +1,29 @@
+#     __       __   ______    ______
+#     /  \     /  | /      \  /      \
+#     $$  \   /$$ |/$$$$$$  |/$$$$$$  |
+#     $$$  \ /$$$ |$$ |  $$/ $$ |  $$/
+#     $$$$  /$$$$ |$$ |      $$ |
+#     $$ $$ $$/$$ |$$ |   __ $$ |   __
+#     $$ |$$$/ $$ |$$ \__/  |$$ \__/  |
+#     $$ | $/  $$ |$$    $$/ $$    $$/
+#     $$/      $$/  $$$$$$/   $$$$$$/
+#
+#     MyCraftCore paper plugin by McSwede
+
+# /highway command to help players find nether highways
+highway:
+  # Enable this module
+  enabled: true
+  # The center coordinates for the nether highway
+  center:
+    x: 0
+    z: 0
+    y: 0
+  # The dimensions of the highway
+  dimensions:
+    width: 0
+    height: 0
+
+# Allows players to un-strip wood by right-clicking it with and axe
+unstrip:
+  enabled: true

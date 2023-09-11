@@ -1,0 +1,14 @@
+name: MyCraftCore
+version: '${version}'
+main: me.mcswede.mycraftcore.MyCraftCore
+api-version: '1.20'
+authors: [ McSwede ]
+description: A plugin that adds some qol improvements
+commands:
+  highway:
+    description: Get directions to the nearest highway in the Nether.
+    permission: mycraftcore.highway
+permissions:
+  mycraftcore.highway:
+    description: Allows usage of the /highway command.
+    default: true
