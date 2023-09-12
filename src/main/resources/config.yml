@@ -26,8 +26,26 @@ highway:
 
 # Allows players to un-strip wood by right-clicking it with and axe
 unstrip:
+  # Enable this module
   enabled: true
 
 # Right-clicking someone else's pet tells you the name of the owner
 petowner:
+  # Enable this module
   enabled: true
+
+# Control the speed of leaf decay
+leafdecay:
+  # Enable this module
+  enabled: true
+  # Delay in ticks to check around a broken blocks.
+  # Must be at least 5
+  breakDelay: 5
+  # Delay in ticks to check around decaying leaves.
+  decayDelay: 5
+  # Break blocks one by one.
+  oneByOne: false
+  # Spawn particles on leaf break
+  particles: true
+  # Play sound on leaf break
+  sound: true

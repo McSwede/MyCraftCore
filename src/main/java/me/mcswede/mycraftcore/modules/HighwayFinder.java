@@ -35,16 +35,16 @@ public class HighwayFinder implements CommandExecutor {
             }
 
             if (player.getWorld().getName().equals("world_nether")) {
-                double x = player.getLocation().getX() - plugin.getConfig().getDouble("highway.center.x");
-                double z = player.getLocation().getZ() - plugin.getConfig().getDouble("highway.center.z");
-                double y = player.getLocation().getY() - plugin.getConfig().getDouble("highway.center.y");
+                double x = player.getLocation().getX() - plugin.getConfig().getDouble("highway.center.x", 0);
+                double z = player.getLocation().getZ() - plugin.getConfig().getDouble("highway.center.z", 0);
+                double y = player.getLocation().getY() - plugin.getConfig().getDouble("highway.center.y", 0);
 
                 String highwayDirection = getClosestHighway(x, z);
-                if (abs(distance) > (plugin.getConfig().getDouble("highway.dimensions.width")/2)) {
+                if (abs(distance) > (plugin.getConfig().getDouble("highway.dimensions.width", 0)/2)) {
                     player.sendMessage(miniMessage.deserialize("<gray>The closest highway is the " + highwayDirection + " highway.<newline>Which is <green>" + abs((int)Math.round(distance)) + "</green> blocks to the " + direction + "<newline>and " + getVerticalDirection(y) + "."));
                 }
                 else {
-                    if (y >= 0 && y <= plugin.getConfig().getDouble("highway.dimensions.height")) {
+                    if (y >= 0 && y <= plugin.getConfig().getDouble("highway.dimensions.height", 0)) {
                         player.sendMessage(miniMessage.deserialize("<gray>You are already on the highway.</gray>")); //TODO: Tell player what highway they are on
                     }
                     else {
