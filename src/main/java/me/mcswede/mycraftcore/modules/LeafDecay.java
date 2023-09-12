@@ -48,7 +48,7 @@ public class LeafDecay implements Listener {
      */
     @EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
     public void onLeavesDecay(LeavesDecayEvent event) {
-        onBlockRemove(event.getBlock(), plugin.getConfig().getLong("leafdecay.decayDelay", 2));
+        onBlockRemove(event.getBlock(), plugin.getConfig().getLong("leafdecay.decayDelay", 5));
     }
 
     /**
@@ -143,7 +143,7 @@ public class LeafDecay implements Listener {
             decayed = decay(block); // Will remove block from list.
         } while (!decayed);
         if (!scheduledBlocks.isEmpty()) {
-            long delay = plugin.getConfig().getLong("leafdecay.decayDelay", 2);
+            long delay = plugin.getConfig().getLong("leafdecay.decayDelay", 5);
             if (delay <= 0) delay = 1L;
             plugin.getServer().getScheduler().runTaskLater(plugin, this::decayOne, delay);
         }

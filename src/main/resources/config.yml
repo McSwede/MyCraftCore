@@ -42,7 +42,7 @@ leafdecay:
   # Must be at least 5
   breakDelay: 5
   # Delay in ticks to check around decaying leaves.
-  decayDelay: 2
+  decayDelay: 5
   # Break blocks one by one.
   oneByOne: false
   # Spawn particles on leaf break
