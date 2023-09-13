@@ -1,13 +1,26 @@
 package me.mcswede.mycraftcore;
 
+import com.tchristofferson.configupdater.ConfigUpdater;
 import me.mcswede.mycraftcore.modules.*;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Collections;
 
 public final class MyCraftCore extends JavaPlugin {
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
+        File configFile = new File(getDataFolder(), "config.yml");
+        try {
+            ConfigUpdater.update(this, "config.yml", configFile, Collections.emptyList());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        reloadConfig();
+
         if (getConfig().getBoolean("highway.enabled", true)) {
             this.getCommand("highway").setExecutor(new HighwayFinder(this));
         }
