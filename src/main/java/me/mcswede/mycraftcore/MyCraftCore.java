@@ -33,6 +33,12 @@ public final class MyCraftCore extends JavaPlugin {
         if (getConfig().getBoolean("leafdecay.enabled", true)) {
             getServer().getPluginManager().registerEvents(new LeafDecay(this), this);
         }
+        if (getServer().getPluginManager().getPlugin("ProtocolLib") != null && getConfig().getBoolean("anvillimit.enabled", true)) {
+            getServer().getPluginManager().registerEvents(new AnvilLimit(this), this);
+        }
+        else {
+            getLogger().warning("ProtocolLib not found! Some features of MCC will be disabled.");
+        }
         getLogger().info("MyCraftCore has been enabled.");
 
     }

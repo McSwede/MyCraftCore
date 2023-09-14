@@ -49,3 +49,11 @@ leafdecay:
   particles: true
   # Play sound on leaf break
   sound: true
+
+# Increase the max level limit of anvils !THIS MODULE REQUIRES PROTOCOLLIB!
+anvillimit:
+  # Enable this module
+  enabled: true
+  # The new limit to use
+  # Min: 41 Max: 32767 (because of a client limitation)
+  limit: 32767
