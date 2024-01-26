@@ -112,7 +112,7 @@ public class LeafDecay implements Listener {
         if (event.isCancelled()) return false;
         if (plugin.getConfig().getBoolean("leafdecay.particles", true)) {
             block.getWorld()
-                    .spawnParticle(Particle.BLOCK_DUST,
+                    .spawnParticle(Particle.BLOCK_CRACK,
                             block.getLocation().add(0.5, 0.5, 0.5),
                             8, 0.2, 0.2, 0.2, 0,
                             block.getType().createBlockData());
