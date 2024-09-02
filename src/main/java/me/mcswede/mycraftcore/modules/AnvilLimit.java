@@ -16,6 +16,7 @@ import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.inventory.PrepareAnvilEvent;
 import org.bukkit.inventory.AnvilInventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.view.AnvilView;
 import org.jetbrains.annotations.NotNull;
 
 public class AnvilLimit implements Listener{
@@ -23,13 +24,14 @@ public class AnvilLimit implements Listener{
     public AnvilLimit(MyCraftCore plugin) {
         this.plugin = plugin;
     }
+
     @EventHandler(priority = EventPriority.MONITOR)
     private void onInventoryOpen(@NotNull InventoryOpenEvent event) {
-        if (!(event.getInventory() instanceof AnvilInventory)) {
+        if (!(event.getInventory() instanceof AnvilView)) {
             return;
         }
 
-        ((AnvilInventory) event.getInventory()).setMaximumRepairCost(constrainAnvilMax(plugin.getConfig().getInt("anvillimit.limit", 32767)));
+        ((AnvilView) event.getInventory()).setMaximumRepairCost(constrainAnvilMax(plugin.getConfig().getInt("anvillimit.limit", 32767)));
 
         if (event.getPlayer() instanceof Player
                 && event.getPlayer().getGameMode() != GameMode.CREATIVE) {
@@ -54,7 +56,7 @@ public class AnvilLimit implements Listener{
         }
 
         plugin.getServer().getScheduler().runTask(plugin, () -> {
-            AnvilInventory anvil = event.getInventory();
+            AnvilView anvil = event.getView();
             ItemStack input2 = anvil.getItem(1);
             setInstantBuild(
                     (Player) event.getView().getPlayer(),

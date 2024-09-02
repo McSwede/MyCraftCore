@@ -36,7 +36,7 @@ public class PetOwner implements Listener {
                 return;
             }
             if(player.getInventory().getItemInMainHand().getType() == Material.AIR && player.getInventory().getItemInOffHand().getType() == Material.AIR) {
-                player.sendMessage(miniMessage.deserialize("<yellow>You petted " + Objects.requireNonNull(owner).getName() + "'s " + getFriendlyPetName(tameable)));
+                player.sendMessage(String.valueOf(miniMessage.deserialize("<yellow>You petted " + Objects.requireNonNull(owner).getName() + "'s " + getFriendlyPetName(tameable))));
                 final Random r = new Random();
                 final List<Sound> sounds = getPatSounds(tameable);
                 World world = player.getWorld();

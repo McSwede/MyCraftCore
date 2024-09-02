@@ -25,12 +25,12 @@ public class HighwayFinder implements CommandExecutor {
         MiniMessage miniMessage = MiniMessage.miniMessage(); // Create the MiniMessage instance
         if (label.equalsIgnoreCase("highway")) {
             if (!(sender instanceof Player player)) {
-                sender.sendMessage(miniMessage.deserialize("This command can only be used by players."));
+                sender.sendMessage(String.valueOf(miniMessage.deserialize("This command can only be used by players.")));
                 return true;
             }
 
             if (!player.hasPermission("mycraftcore.highway")) {
-                player.sendMessage(miniMessage.deserialize("<gray>You do not have permission to use this command.</gray>"));
+                player.sendMessage(String.valueOf(miniMessage.deserialize("<gray>You do not have permission to use this command.</gray>")));
                 return true;
             }
 
@@ -41,18 +41,18 @@ public class HighwayFinder implements CommandExecutor {
 
                 String highwayDirection = getClosestHighway(x, z);
                 if (abs(distance) > (plugin.getConfig().getDouble("highway.dimensions.width", 0)/2)) {
-                    player.sendMessage(miniMessage.deserialize("<gray>The closest highway is the " + highwayDirection + " highway.<newline>Which is <green>" + abs((int)Math.round(distance)) + "</green> blocks to the " + direction + "<newline>and " + getVerticalDirection(y) + "."));
+                    player.sendMessage(String.valueOf(miniMessage.deserialize("<gray>The closest highway is the " + highwayDirection + " highway.<newline>Which is <green>" + abs((int)Math.round(distance)) + "</green> blocks to the " + direction + "<newline>and " + getVerticalDirection(y) + ".")));
                 }
                 else {
                     if (y >= 0 && y <= plugin.getConfig().getDouble("highway.dimensions.height", 0)) {
-                        player.sendMessage(miniMessage.deserialize("<gray>You are already on the highway.</gray>")); //TODO: Tell player what highway they are on
+                        player.sendMessage(String.valueOf(miniMessage.deserialize("<gray>You are already on the highway.</gray>"))); //TODO: Tell player what highway they are on
                     }
                     else {
-                        player.sendMessage(miniMessage.deserialize("<gray>The highway is " + getVerticalDirection(y) + " from your current position."));
+                        player.sendMessage(String.valueOf(miniMessage.deserialize("<gray>The highway is " + getVerticalDirection(y) + " from your current position.")));
                     }
                 }
             } else {
-                player.sendMessage(miniMessage.deserialize("<gray>You must be in the Nether to use this command.</gray>"));
+                player.sendMessage(String.valueOf(miniMessage.deserialize("<gray>You must be in the Nether to use this command.</gray>")));
             }
         }
 
