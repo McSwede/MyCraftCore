@@ -57,3 +57,8 @@ anvillimit:
   # The new limit to use
   # Min: 41 Max: 32767 (because of a client limitation)
   limit: 32767
+
+# Removes randomness from projectiles to make them more accurate
+removeprojectilerandomness:
+  # Enable this module
+  enabled: true

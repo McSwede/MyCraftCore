@@ -33,6 +33,9 @@ public final class MyCraftCore extends JavaPlugin {
         if (getConfig().getBoolean("leafdecay.enabled", true)) {
             getServer().getPluginManager().registerEvents(new LeafDecay(this), this);
         }
+        if (getConfig().getBoolean("removeprojectilerandomness.enabled", true)) {
+            getServer().getPluginManager().registerEvents(new RemoveProjectileRandomness(), this);
+        }
         if (getServer().getPluginManager().getPlugin("ProtocolLib") != null && getConfig().getBoolean("anvillimit.enabled", true)) {
             getServer().getPluginManager().registerEvents(new AnvilLimit(this), this);
         }
